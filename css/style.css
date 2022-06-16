@@ -214,6 +214,10 @@ body {
   color: #2e80b6;
 }
 
+.main {
+  margin-top: 70px;
+}
+
 .welcome {
   min-height: 600px;
   padding: 195px 0;
