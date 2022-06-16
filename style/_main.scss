@@ -318,16 +318,22 @@ body {
 }
 @media (max-width: 860px) {
 	.popup {
+		padding: 0px 30px 10px;
+	}
+}
+@media (max-width: 400px) {
+	.popup {
 		width: 80%;
+	}
+}
+@media (max-height: 649px) {
+	.popup {
+		top: 80%;
 	}
 }
 
 .close_popup {
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background: #ffffff;
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	font-size: 20px;
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -338,7 +344,6 @@ body {
 
 	&:hover {
 		color: $blue;
-		border: 1px solid #2195f36b;
 	}
 }
 
