@@ -4,7 +4,13 @@ body {
 	font-size: 14px;
 	line-height: 1.7;
 	width: 100%;
+
+	&.notOverflow {
+		overflow: hidden;
+		padding-right: 21px;
+	}
 }
+
 .wrapper {
 	max-width: 1440px;
 	margin: 0 auto;
@@ -259,6 +265,193 @@ body {
 		& .card__text {
 			padding: 0px 20px;
 		}
+	}
+}
+
+/*------------- pop_up button------ */
+
+.popup_bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.459);
+	opacity: 0;
+	pointer-events: none;
+	transition: 500ms all;
+	z-index: 30;
+	overflow-x: auto;
+
+	&.activePop {
+		opacity: 1;
+		pointer-events: all;
+		transition: 500ms all;
+	}
+}
+
+.popup {
+	margin: 0 auto;
+	width: 508px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+		0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	background: $white;
+	padding: 30px;
+	z-index: 30;
+	transition: 500ms all;
+
+	&.activePop {
+		transform: translate(-50%, -50%) scale(1);
+		transition: 500ms all;
+	}
+	& label {
+		width: 100%;
+		margin-bottom: 10px;
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
+@media (max-width: 860px) {
+	.popup {
+		margin-top: 20px;
+		width: 80%;
+	}
+}
+
+.close_popup {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #ffffff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	position: absolute;
+	text-align: center;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	line-height: 28px;
+
+	&:hover {
+		color: $blue;
+		border: 1px solid #2195f36b;
+	}
+}
+
+.popup_name {
+	margin: 20px 0px;
+	font-size: 22px;
+	text-align: center;
+	letter-spacing: 0.03em;
+	color: $title;
+}
+.popup_img {
+	box-sizing: border-box;
+	position: absolute;
+	width: 20px;
+	margin-left: 10px;
+	padding-bottom: 11px;
+	fill: $dark;
+	transition: 200ms;
+}
+
+.popup_input {
+	color: $link;
+	margin-top: 5px;
+	height: 40px;
+	font-size: 16px;
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	padding-left: 35px;
+	transition: 300ms;
+	&:hover {
+		border: 1px solid $blue;
+	}
+	&:focus {
+		border: 1px solid $blue;
+	}
+	&:focus + .label_text {
+		color: $blue;
+	}
+	&:focus ~ .popup_img {
+		fill: $blue;
+	}
+}
+
+.label_text {
+	color: $text;
+}
+
+.massage {
+	width: 100%;
+	resize: none;
+	height: 80px;
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 10px;
+	outline: 0;
+	font-size: 16px;
+	letter-spacing: 0.01em;
+	color: $text;
+	&:focus {
+		border: 1px solid $blue;
+	}
+	&:hover {
+		border: 1px solid $blue;
+	}
+	&:focus + .label_text {
+		color: $blue;
+	}
+	&::placeholder {
+		color: $link;
+	}
+}
+
+.pop_up_agree {
+	padding-top: 15px;
+	margin: 0 auto;
+	display: flex;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.03em;
+	color: $title;
+	& input {
+		width: 15px;
+		height: 15px;
+		margin-top: 3px;
+		margin-right: 8px;
+		background-color: $blue;
+	}
+	& a {
+		color: $blue;
+		text-decoration: underline;
+	}
+}
+
+.submit {
+	width: 200px;
+	height: 50px;
+	border-radius: 4px;
+	margin: 20px auto 0px;
+	cursor: pointer;
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	border: 2px solid $blue;
+	background: $blue;
+	transition: 300ms;
+	&:hover {
+		background: $darkBlue;
 	}
 }
 
