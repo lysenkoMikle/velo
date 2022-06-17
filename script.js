@@ -43,26 +43,50 @@ let popup = document.querySelector(".popup");
 let openPopupButtons = document.querySelectorAll(".open_popup");
 let closePopupButton = document.querySelector(".close_popup");
 const body = document.querySelector("body");
+const lockPadding = document.querySelectorAll(".lockPadding");
 
 openPopupButtons.forEach((button) => {
 	button.addEventListener("click", (e) => {
 		e.preventDefault();
-		document.body.classList.add("notOverflow");
 		popupBg.classList.add("activePop");
 		popup.classList.add("activePop");
+		bodyLock();
 	});
 });
 
 closePopupButton.addEventListener("click", () => {
 	popupBg.classList.remove("activePop");
 	popup.classList.remove("activePop");
-	document.body.classList.remove("notOverflow");
+	bodyUnLock();
 });
 
 document.addEventListener("click", (e) => {
 	if (e.target === popupBg) {
 		popupBg.classList.remove("activePop");
 		popup.classList.remove("activePop");
-		document.body.classList.remove("notOverflow");
+		bodyUnLock();
 	}
 });
+
+function bodyLock() {
+	const lockPaddingVal = window.innerWidth - body.offsetWidth + "px";
+	console.log(lockPaddingVal);
+	if (lockPadding.length > 0) {
+		for (let index = 0; index < lockPadding.length; index++) {
+			const el = lockPadding[index];
+			el.style.paddingRight = lockPaddingVal;
+		}
+	}
+	body.classList.add("notOverflow");
+	body.style.paddingRight = lockPaddingVal;
+}
+
+function bodyUnLock() {
+	for (let i = 0; i < lockPadding.length; i++) {
+		const el = lockPadding[i];
+		el.style.paddingRight = "0px";
+	}
+
+	body.classList.remove("notOverflow");
+	body.style.paddingRight = "0px";
+}

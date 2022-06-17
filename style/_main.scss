@@ -7,11 +7,11 @@ body {
 
 	&.notOverflow {
 		overflow: hidden;
-		padding-right: 21px;
 	}
 }
 
 .wrapper {
+	min-height: 100%;
 	max-width: 1440px;
 	margin: 0 auto;
 }
@@ -301,7 +301,7 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%) scale(0);
 	background: $white;
-	padding: 30px;
+	padding: 0px 30px 10px;
 	z-index: 30;
 	transition: 500ms all;
 
@@ -316,17 +316,13 @@ body {
 		flex-direction: column-reverse;
 	}
 }
-@media (max-width: 860px) {
-	.popup {
-		padding: 0px 30px 10px;
-	}
-}
+
 @media (max-width: 400px) {
 	.popup {
 		width: 80%;
 	}
 }
-@media (max-height: 649px) {
+@media (max-height: 400px) {
 	.popup {
 		top: 80%;
 	}
